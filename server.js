@@ -28,7 +28,7 @@ app.use(cors({
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("", (req, res) => {
   res.status(200).json({
     success: true,
     message: "Node CRUD Backend API is running successfully 🚀"
