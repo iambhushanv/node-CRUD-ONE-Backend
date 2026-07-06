@@ -28,6 +28,13 @@ app.use(cors({
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Node CRUD Backend API is running successfully 🚀"
+  });
+});
+
 app.get('/blogs', (req, res) => {
   try {
     res.status(200).json({
@@ -77,18 +84,18 @@ app.get('/blogs/:id', (req, res) => {
 app.post('/blogs', (req, res) => {
   try {
 
-    let { title, content, author } = req.body;   
+    let { title, content, author } = req.body;
 
     if (!title || !content) {
       return res.status(400).json({
-        success: false,                          
+        success: false,
         message: 'title & content required'
       })
     }
 
     let newObj = {
       title,
-      content,                                   
+      content,
       author: author || 'Anonymous',
       id: blogs.length + 1
     }
@@ -149,7 +156,7 @@ app.patch('/blogs/:id', (req, res) => {
 
   try {
     let blogId = req.params.id;
-    const { title, content } = req.body;          
+    const { title, content } = req.body;
     let getIndex = blogs.findIndex(post => post.id == blogId);
 
     if (getIndex === -1) {
@@ -162,9 +169,9 @@ app.patch('/blogs/:id', (req, res) => {
     if (!title || !content) {
       return res.status(400).json({
         success: false,
-        message: 'title or content is required'  
+        message: 'title or content is required'
       })
-    }                                                
+    }
 
     let updatedBlogs = {
       ...blogs[getIndex],
