@@ -1,0 +1,8 @@
+
+
+// BASE_URL == localhost:3000
+// BLOGS_URL == BASE_URL/blogs  && METHOD == "GET"
+// BLOG_URL == BASE_URL/blogs/:id  && METHOD == "GET"
+
+// BLOGS_URL == BASE_URL/blogs/:id  
+
